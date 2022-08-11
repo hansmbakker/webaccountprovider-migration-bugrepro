@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Saso.SampleProvider.Winui (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Saso.SampleProvider.Winui (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

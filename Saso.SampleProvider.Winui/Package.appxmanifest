@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap">
+
+    <Identity
+      Name="fb576866-aa13-4064-aae9-c2af24956f6f"
+      Publisher="CN=HansBakker"
+      Version="1.0.0.0" />
+
+    <Properties>
+        <DisplayName>Saso.SampleProvider.Winui</DisplayName>
+        <PublisherDisplayName>HansBakker</PublisherDisplayName>
+        <Logo>Assets\StoreLogo.png</Logo>
+    </Properties>
+
+    <Dependencies>
+        <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+    </Dependencies>
+
+    <Resources>
+        <Resource Language="x-generate"/>
+    </Resources>
+
+    <Applications>
+        <Application Id="App"
+          Executable="$targetnametoken$.exe"
+          EntryPoint="$targetentrypoint$">
+            <uap:VisualElements
+              DisplayName="Saso.SampleProvider.Winui"
+              Description="Saso.SampleProvider.Winui"
+              BackgroundColor="transparent"
+              Square150x150Logo="Assets\Square150x150Logo.png"
+              Square44x44Logo="Assets\Square44x44Logo.png">
+                <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+                <uap:SplashScreen Image="Assets\SplashScreen.png" />
+            </uap:VisualElements>
+            <Extensions>
+                <uap:Extension Category="windows.webAccountProvider">
+                    <uap:WebAccountProvider Url="https://paxwaptest.azurewebsites.net/" BackgroundEntryPoint="Saso.SampleProvider.BackgroundService.MainTask" />
+                </uap:Extension>
+            </Extensions>
+        </Application>
+    </Applications>
+    <Extensions>
+        <Extension Category="windows.activatableClass.inProcessServer">
+            <InProcessServer>
+                <Path>Saso.SampleProvider.Winui\WinRT.Host.dll</Path>
+                <ActivatableClass ActivatableClassId="Saso.SampleProvider.BackgroundService.MainTask" ThreadingModel="both"/>
+            </InProcessServer>
+        </Extension>
+    </Extensions>
+    <Capabilities>
+        <rescap:Capability Name="runFullTrust" />
+    </Capabilities>
+</Package>

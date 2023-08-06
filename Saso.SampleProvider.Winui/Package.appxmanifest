@@ -3,6 +3,7 @@
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   IgnorableNamespaces="uap rescap">
 
@@ -40,9 +41,9 @@
                 <uap:SplashScreen Image="Assets\SplashScreen.png" />
             </uap:VisualElements>
             <Extensions>
-                <uap:Extension Category="windows.webAccountProvider">
-                    <uap:WebAccountProvider Url="https://paxwaptest.azurewebsites.net/" BackgroundEntryPoint="Saso.SampleProvider.BackgroundService.MainTask" />
-                </uap:Extension>
+                <uap2:Extension Category="windows.webAccountProvider">
+                    <uap2:WebAccountProvider Url="https://paxwaptest.azurewebsites.net/" BackgroundEntryPoint="Saso.SampleProvider.BackgroundService.MainTask" />
+                </uap2:Extension>
             </Extensions>
         </Application>
     </Applications>
